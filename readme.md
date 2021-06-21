@@ -181,3 +181,5 @@ export async function getList(data: req$reqquery): Promise<res$resbody | null>{
 ...
 ```
 如果只是js代码也可以使用本插件生成
+
+github地址: [https://github.com/dsmelon/tsapi-from-yapi](https://github.com/dsmelon/tsapi-from-yapi)
