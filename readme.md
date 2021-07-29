@@ -95,6 +95,7 @@ npm run tfy
 
 
 **repsonse结构说明**
+> req_id 此条id
 
 > req_url 请求地址
 
@@ -111,6 +112,8 @@ npm run tfy
 > req_body 请求体
 
 > res_body 响应体
+
+> method 请求方法
 
 
 以下是占位符，可以在template的repeat里被替换，是变量，不是字符串，使用时要使用reponse.$name等，根据需要使用，未使用的不生成对应interface

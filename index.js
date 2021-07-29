@@ -4,7 +4,7 @@ const path = require('path');
 const fetch = require('node-fetch');
 const process = require('process');
 const curdirname = process.cwd();
-let localCookie = '', response = [], responseo = [], temp = {}, logs = [], preTarget = [], curTarget = [], urlCom = '', filesMap = {}, interfacesMap = {};
+let cookie = '', localCookie = '', response = [], responseo = [], temp = {}, logs = [], preTarget = [], curTarget = [], urlCom = '', filesMap = {}, interfacesMap = {};
 try {
   localCookie = require(path.join(curdirname, 'tfyTemp/cookie.json')).cookie;
 } catch (error) {}
@@ -131,7 +131,7 @@ function getScame(_list, _cookie, _cb){
   let { urls, cookie:__cookie = '', loginParams = {}, isLdap, template, excludes, typeMerge, mode = 'update', importTile = '', importQuotation = `'` } = require(path.join(curdirname, 'tfy.config.js'));
   if(typeMerge) mapType = { ...mapType, ...typeMerge };
   if(check({ urls })) return;
-  let cookie = localCookie;
+  cookie = localCookie;
   let test;
   try {
     if(cookie){
