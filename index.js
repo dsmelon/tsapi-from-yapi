@@ -214,6 +214,7 @@ function getScame(_list, _cookie, _cb){
     return;
   } 
   
+  response.sort((a, b) => a.req_id - b.req_id)
 
   try {
     preTarget = require(path.join(curdirname, 'tfyTemp/target.json'));
@@ -237,17 +238,20 @@ function getScame(_list, _cookie, _cb){
 
   const names = {}, namesRev = {};
   response.forEach(v => {
-    namesRev[v.req_id] = v.__template.name;
+    namesRev[v.req_id] = `${v.__template.name}${v.__template.filePath}`;
+    namesRev[`${v.req_id}i`] = `${v.__template.name}${v.__template.interfacePath}`;
   })
   switch(mode){
     case 'update':
       curTarget.forEach(v => {
-        !namesRev[v.id] && (namesRev[v.id] = v.name);
+        !namesRev[v.id] && (namesRev[v.id] = `${v.name}${v.filePath}`);
+        !namesRev[`${v.id}i`] && (namesRev[`${v.id}i`] = `${v.name}${v.interfacePath}`);
       })
     break;
     case 'add':
       curTarget.forEach(v => {
-        namesRev[v.id] = v.name;
+        namesRev[v.id] = `${v.name}${v.filePath}`;
+        namesRev[`${v.id}i`] = `${v.name}${v.interfacePath}`;
       })
     break;
   }
@@ -256,7 +260,7 @@ function getScame(_list, _cookie, _cb){
     names[namesRev[v]].push(v)
   })
   response.forEach(v => {
-    v.rename = (names[v.__template.name] || []).length > 1
+    v.rename = (names[`${v.__template.name}${v.__template.filePath}`] || []).length > 1 || (names[`${v.__template.name}${v.__template.interfacePath}`] || []).length > 1
   })
 
   response.forEach(v =>{
