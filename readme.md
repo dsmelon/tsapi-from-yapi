@@ -148,7 +148,7 @@ npm run tfy
 
 > $res_body_markfr: 同上
 
-> $name: 返回的name占位符，当有重名时，会在其后补充唯一id进行唯一区分
+> $name: 返回的name占位符，当同个文件内有重名时，会在其后补充唯一id进行唯一区分
 
 
 例子：
@@ -176,7 +176,7 @@ npm run tfy
 ```
 生成
 ```javascript
-import { req$reqquery, res$resbody } from './../a.d'
+import { req$reqquery, res$resbody } from '../a.d'
 import request from './request'
 export async function getList(data: req$reqquery): Promise<res$resbody | null>{
   return await request('/getList')
