@@ -1,6 +1,6 @@
 {
   "name": "tsapi-from-yapi",
-  "version": "1.1.6",
+  "version": "1.1.8",
   "description": "把yapi的接口转换为本地使用的ts代码(yapi.com transform to local ts interface code)",
   "repository": {
     "type": "git",
